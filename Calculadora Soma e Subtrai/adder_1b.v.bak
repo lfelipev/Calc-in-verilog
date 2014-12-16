@@ -1,0 +1,12 @@
+module adder_1b(a,b,cin,cout,sum);
+	input wire a, b, cin;
+	output wire cout, sum;
+	
+	//CarryOut = (b.CarryIn) + (a.CarryIn) + (b.a)
+	and and1 (and1_out, a, cin);
+	and and2	(and2_out, b, cin);
+	and and3	(and3_out, a, b);
+	
+	or cout_or (cout, and1_out, and2_out, and3_out);
+	
+endmodule

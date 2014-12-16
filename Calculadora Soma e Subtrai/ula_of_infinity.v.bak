@@ -1,0 +1,5 @@
+module ula_of_infinity(a, b, cin, result, overflow);
+
+	module ula_1b(a,b, less, cin, op, binvert, ainvert, cout, result);
+
+endmodule

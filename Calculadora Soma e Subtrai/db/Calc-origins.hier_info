@@ -1,0 +1,762 @@
+|calculadora_soma_sub
+reset => state~3.DATAIN
+enter => state~1.DATAIN
+data_in[0] => Decoder0.IN0
+data_in[0] => reg_b[0].DATAIN
+data_in[0] => reg_a[0].DATAIN
+data_in[1] => reg_b[1].DATAIN
+data_in[1] => reg_a[1].DATAIN
+data_in[2] => reg_b[2].DATAIN
+data_in[2] => reg_a[2].DATAIN
+data_in[3] => reg_b[3].DATAIN
+data_in[3] => reg_a[3].DATAIN
+data_in[4] => reg_b[4].DATAIN
+data_in[4] => reg_a[4].DATAIN
+data_in[5] => reg_b[5].DATAIN
+data_in[5] => reg_a[5].DATAIN
+data_in[6] => reg_b[6].DATAIN
+data_in[6] => reg_a[6].DATAIN
+data_in[7] => reg_b[7].DATAIN
+data_in[7] => reg_a[7].DATAIN
+result[0] <= result[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= result[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= result[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= result[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= result[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+op[0] => op[0].IN8
+op[1] => op[1].IN8
+op[2] => op[2].IN9
+op[3] => op[3].IN8
+cout <= ula_overflow:ula7.port7
+result[0] <= ula_1b:ula0.port8
+result[1] <= ula_1b:ula1.port8
+result[2] <= ula_1b:ula2.port8
+result[3] <= ula_1b:ula3.port8
+result[4] <= ula_1b:ula4.port8
+result[5] <= ula_1b:ula5.port8
+result[6] <= ula_1b:ula6.port8
+result[7] <= ula_overflow:ula7.port8
+overflow <= ula_overflow:ula7.port10
+zero <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula0|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula1|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula2|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula3|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula4|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula5|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN1
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= adder_1b:adder.port3
+result <= mux4_1b:mux.port0
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_1b:ula6|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7
+a => a.IN1
+b => b.IN1
+less => less.IN1
+cin => cin.IN2
+op[0] => op[0].IN1
+op[1] => op[1].IN1
+binvert => binvert.IN1
+ainvert => ainvert.IN1
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+result <= mux4_1b:mux.port0
+set <= overflow_1b:overflow_origins.port3
+overflow <= overflow_1b:overflow_origins.port4
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|mux2_1b:mux_binvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|mux2_1b:mux_ainvert
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|adder_1b:adder
+a => and_cout2.IN0
+a => and_cout3.IN0
+a => and_sum1.IN0
+a => and_sum4.IN0
+a => and_sum2.IN0
+a => and_sum3.IN0
+b => and_cout1.IN0
+b => and_cout3.IN1
+b => and_sum2.IN1
+b => and_sum4.IN1
+b => and_sum1.IN1
+b => and_sum3.IN1
+cin => and_cout1.IN1
+cin => and_cout2.IN1
+cin => and_sum3.IN2
+cin => and_sum4.IN2
+cin => and_sum1.IN2
+cin => and_sum2.IN2
+cout <= cout_or.DB_MAX_OUTPUT_PORT_TYPE
+sum <= big_or.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|overflow_1b:overflow_origins
+cin => xo1.IN0
+cout => xo1.IN1
+sum => xo2.IN1
+set <= xo2.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= xo1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|mux4_1b:mux
+out <= mux2_1b:M3.port0
+a => a.IN1
+b => b.IN1
+c => c.IN1
+d => d.IN1
+sel[0] => sel[0].IN2
+sel[1] => sel[1].IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|mux4_1b:mux|mux2_1b:M1
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|mux4_1b:mux|mux2_1b:M2
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+
+|calculadora_soma_sub|ula_of_infinity:ula_of_destiny|ula_overflow:ula7|mux4_1b:mux|mux2_1b:M3
+out <= or_final.DB_MAX_OUTPUT_PORT_TYPE
+a => and_b.IN0
+b => and_a.IN0
+sel => and_a.IN1
+sel => and_b.IN1
+
+

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'state.S3'
+Slack : -3.310
+TNS   : -23.632
+
+Type  : Slow Model Setup 'enter'
+Slack : 1.878
+TNS   : 0.000
+
+Type  : Slow Model Hold 'enter'
+Slack : -2.423
+TNS   : -8.209
+
+Type  : Slow Model Hold 'state.S3'
+Slack : -0.158
+TNS   : -0.308
+
+Type  : Slow Model Minimum Pulse Width 'enter'
+Slack : -1.380
+TNS   : -5.380
+
+Type  : Slow Model Minimum Pulse Width 'state.S0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'state.S1'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'state.S2'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'state.S3'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'state.S3'
+Slack : -1.118
+TNS   : -7.656
+
+Type  : Fast Model Setup 'enter'
+Slack : 1.553
+TNS   : 0.000
+
+Type  : Fast Model Hold 'enter'
+Slack : -1.552
+TNS   : -5.540
+
+Type  : Fast Model Hold 'state.S3'
+Slack : -0.378
+TNS   : -1.706
+
+Type  : Fast Model Minimum Pulse Width 'enter'
+Slack : -1.380
+TNS   : -5.380
+
+Type  : Fast Model Minimum Pulse Width 'state.S0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'state.S1'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'state.S2'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'state.S3'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

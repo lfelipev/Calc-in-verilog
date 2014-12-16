@@ -1,0 +1,12 @@
+//Módulo da ULA de 1 bit
+
+module ula_1b(a,b,result);
+	input wire a, b;
+	output wire result;
+	
+	wire or_out, and_out;
+	//As duas operações and e or básicas da ula:
+	or ula_or (or1_out, a, b);
+	and ula_and (and_out, a, b);
+	//
+endmodule

@@ -1,0 +1,11 @@
+module mux2_1b(a, b, sel, out);
+	input wire a,b,sel;
+	output wire out;
+	
+	wire not_sel, and_a_out, and_b_out;
+	not not1 (not_sel, sel);
+	and and_a (and_a_out, a, sel);
+	and and_b (and_b_out, b, sel);
+	or or_final (out, and_a_out, and_b_out);
+	
+endmodule

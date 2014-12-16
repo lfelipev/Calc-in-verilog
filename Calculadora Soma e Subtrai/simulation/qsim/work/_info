@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Luís\Documents\UFAL\sistemas\ULA-origins\Calculadora Soma e Subtrai\simulation\qsim
+vcalculadora_soma_sub
+Z1 !s100 e2^Mh6f^Z;CG:@3h6NP3`0
+Z2 I:mU9XDoNR50bQea[j;i0d1
+Z3 VNJ[844=Bd;PHHWTf6CN<K1
+Z4 dC:\Users\Luís\Documents\UFAL\sistemas\ULA-origins\Calculadora Soma e Subtrai\simulation\qsim
+Z5 w1418706691
+Z6 8Calc-origins.vo
+Z7 FCalc-origins.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|Calc-origins.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1418706700.366000
+Z12 !s107 Calc-origins.vo|
+!s101 -O0
+vcalculadora_soma_sub_vlg_check_tst
+!i10b 1
+Z13 !s100 <C9^PTT^8N:2;5R[Kc2cg1
+Z14 Id0i9A8aDC5hYQVf>?T1ng3
+Z15 V6=m?Vm>9J5UWEURSUQ8Sa2
+R4
+Z16 w1418706683
+Z17 8Calc-origins.vt
+Z18 FCalc-origins.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z19 !s108 1418706701.835000
+Z20 !s107 Calc-origins.vt|
+Z21 !s90 -work|work|Calc-origins.vt|
+!s101 -O0
+R10
+vcalculadora_soma_sub_vlg_sample_tst
+!i10b 1
+Z22 !s100 lRP3S]F0;iORH73@NXL<z3
+Z23 I;h;kzQmK6e8_6LgEN2G4T2
+Z24 VK^3Q0bfkWD<1X9WJjNA]Y1
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vcalculadora_soma_sub_vlg_vec_tst
+!i10b 1
+!s100 mNH5WQ_MaL4^?<@YIUeoT1
+IGZ7j48U5m9j>6=9mR7H0:1
+Z25 VDPIAP>g:jP@>h_on48nNF1
+R4
+R16
+R17
+R18
+Z26 L0 289
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
